@@ -1,6 +1,10 @@
 :root {
-  --yellow: #ffc600;
-  --black: #272727;
+  --black: rgb(34, 34, 34);
+  --white: rgb(255, 255, 255);
+  --grey: grey;
+  --verylightgrey: rgb(247, 247, 247);
+  --red: #ff385c;
+  --container-max-width: 1600px;
 }
 
 html {
@@ -9,16 +13,11 @@ html {
   /* A system font stack so things load nice and quick! */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: 900;
   font-size: 10px;
   color: var(--black);
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
 }
 
-/*
-  We inherit box-sizing: border-box; from our <html> selector
-  Apparently this is a bit better than applying box-sizing: border-box; directly to the * selector
-*/
+/* We inherit box-sizing: border-box; from our <html> selector. Apparently this is a bit better than applying box-sizing: border-box; directly to the * selector */
 *,
 *:before,
 *:after {
@@ -26,5 +25,340 @@ html {
 }
 
 body {
-  margin: 50px;
+  font-size: 14px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+
+a {
+  color: var(--black);
+}
+
+img {
+  width: 100%;
+}
+
+.content {
+  max-width: var(--container-max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.banner {
+  text-align: center;
+  padding: 6px;
+}
+
+.top {
+  height: 675px;
+  background: var(--black) url(/assets/images/treehouse.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.top__content {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  color: var(--white);
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.nav {
+  display: grid;
+  grid-auto-flow: column;
+  min-height: 80px;
+  align-items: center;
+}
+
+.search {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, minmax(100px, 175px)) auto;
+  color: var(--black);
+  background: var(--white);
+  border-radius: 32px;
+  padding: 10px;
+  max-width: 850px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.search__item {
+  padding: 0 24px;
+  border-right: 1px solid lightgrey;
+}
+
+.search__item:nth-last-child(2) {
+  border: none;
+}
+
+.search__item-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.search__item-desc {
+  font-size: 14px;
+  margin-top: 2px;
+  font-weight: 100;
+  color: var(--grey);
+}
+
+.search__button {
+  background: var(--red);
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.explore {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  max-width: 300px;
+}
+
+.explore__header {
+  margin-bottom: 12px;
+}
+
+.explore__description {
+  margin-bottom: 16px;
+}
+
+.suggestions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(272px, 1fr));
+  grid-gap: 16px;
+  margin: 30px auto;
+  padding-bottom: 40px;
+}
+
+.suggestion {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.suggestion__content {
+  padding: 12px 16px;
+}
+
+.suggestion__title {
+  font-size: 18px;
+}
+
+.suggestion__description {
+  margin-top: 4px;
+  color: var(--grey);
+}
+
+.experiences {
+  background: black;
+}
+
+.experiences__content {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-gap: 32px;
+  color: var(--white);
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+
+.experiences__header {
+  display: flex;
+}
+
+.experiences__header-content {
+  flex: 1;
+}
+
+.experiences__description {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.experiences__featured {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 15px;
+  grid-template-areas:
+    "bill bill sri  buenos"
+    "bill bill dive dive";
+}
+
+.experience {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.experience:nth-child(1) {
+  grid-area: bill;
+}
+
+.experience:nth-child(2) {
+  grid-area: sri;
+}
+
+.experience:nth-child(3) {
+  grid-area: buenos;
+}
+
+.experience:nth-child(4) {
+  grid-area: dive;
+}
+
+.experience__title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--black);
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  padding: 24px 16px;
+  font-size: 16px;
+}
+
+.lighthouse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  margin: 80px auto;
+}
+
+.lighthouse__header {
+  margin-bottom: 20px;
+  max-width: 460px;
+}
+
+.lighthouse__description {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 200;
+  max-width: 460px;
+}
+
+.destinations {
+  margin: 48px auto;
+}
+
+.destinations__header {
+  margin-bottom: 25px;
+}
+
+.destinations__header h3 {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.destinations__tabs {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 15px;
+  font-weight: 400;
+  color: var(--grey);
+}
+
+.destinations__tab:nth-child(1) {
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--black);
+  color: var(--black);
+}
+
+.destinations__places {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(230px, 1fr));
+  grid-gap: 32px;
+  font-weight: 200;
+}
+
+.destinations__state {
+  color: var(--grey);
+}
+
+.footer {
+  background: var(--verylightgrey);
+  border-top: 1px solid lightgrey;
+}
+
+.footer__links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(230px, 1fr));
+  grid-gap: 20px;
+  padding: 30px 0;
+}
+
+.footer__links h4 {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.footer__links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer__links li {
+  margin-top: 16px;
+  font-weight: 200;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid lightgrey;
+  padding: 24px 0;
+}
+
+.footer__boring,
+.footer__locales,
+.footer__social {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer__boring {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.footer__social {
+  margin-left: 32px;
+}
+
+/* buttons */
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: none;
+  background: var(--white);
+}
+
+.btn--black {
+  background: black;
+  color: var(--white);
+  border: 1px solid white;
+}
+
+.btn--white {
+  background: transparent;
+  color: var(--black);
+  border: 1px solid var(--black);
 }
